@@ -1,11 +1,50 @@
+from PIL import Image
+from matplotlib import pyplot
 import numpy as np
+import os
 
-def inter(Matrix):
+#Se le pide la imagen al usuario
+def Generador():
+    try:
+        imagen = input('Favor escribir el nombre de la imagen a procesar: ')
+
+        img = Image.open(str(imagen)).convert('LA')
+        global width
+        global height
+        width, height = img.size
+        img.save('greyScale.png')
+    except:
+        print("Imagen no encontrada, favor intente de nuevo.")
+        return Generador()
+
+    #pixeles en pares ordenados ej: (#,255)
+    pix_val = list(img.getdata())
+
+    #pixeles en lista ej: [#, #, #, ...]
+    imageData = [x for sets in pix_val for x in sets]
+    del imageData[1::2]
+
+    #pixeles como matriz de tamano width x height
+    Data = np.array(imageData)
+    Data = Data.reshape((width, height))
+
+    #Crea el archivo txt con los valores de los pixeles de la imagen
+    fh = open('image.txt', 'w')
+    listToStr = ''.join([value for value in str(Data)]) 
+    fh.write(listToStr)
+    fh.close
+
+
+    
+    return Inter(Data)
+
+
+
+def Inter(Matrix):
     
     x=len(Matrix)
     y=len(Matrix[0])
     Salida = np.zeros(shape=(2*x,2*y))
-    print(Salida)
     R=2*x
     W=2*y
     i=0
@@ -55,14 +94,17 @@ def inter(Matrix):
             contador=contador+2
         Vsync=Vsync+2    
         i=i+1
-    print(Salida)
-    return Salida
+    #print(Salida)
+    return NewImage(Salida)
+
+def NewImage(Salida):    
+    #Creamos imagen Sharpening y la mostramos
+    data = np.array(Salida)
+    data = data.reshape((width*2, height*2))
+    image = Image.fromarray(data.astype(np.uint8), 'L')
+    #image = image.resize((width,height))
+    image.save("Interpolation.jpg")
+    print("Listo! Imagen guardada bajo el nombre Interpolation.jpg")
 
 
-a=[[1,2],[2,4]]
-#print(a)
-inter(a)
-b=[[10,20,30],[40,50,60],[70,80,90]]
-inter(b)
-c=[[10,20,30,40],[50,60,70,80],[90,100,110,120],[130,140,150,160]]
-inter(c)
+Generador()
