@@ -42,7 +42,7 @@ def interpolate_bilinear(array_in, width_in, height_in, array_out, width_out, he
 
 
 # load image
-im = Image.open("tulio.jpg").convert('LA')
+im = Image.open("images/tulio.jpg").convert('LA')
 width_2 = im.width * 2
 height_2 = im.height *2
 im2 = (np.array(im) )

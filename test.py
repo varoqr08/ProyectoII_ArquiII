@@ -31,6 +31,7 @@ def Generador():
 
     #pixeles en pares ordenados ej: (#,255)
     pix_val = list(img.getdata())
+    # pix_val = img.getdata() //
 
     #pixeles en lista ej: [#, #, #, ...]
     imageData = [x for sets in pix_val for x in sets]
@@ -42,7 +43,7 @@ def Generador():
 
     #Crea el archivo txt con los valores de los pixeles de la imagen
     fh = open('image.txt', 'w')
-    listToStr = ''.join([value for value in str(Data)]) 
+    listToStr = ''.join([value for value in str(Data)])
     fh.write(listToStr)
     fh.close
 

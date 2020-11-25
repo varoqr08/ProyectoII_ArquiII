@@ -12,7 +12,7 @@ def Generador():
         global width
         global height
         width, height = img.size
-        img.save('greyScale.png')
+        img.save('images/greyScale.png')
     except:
         print("Imagen no encontrada, favor intente de nuevo.")
         return Generador()
@@ -29,7 +29,7 @@ def Generador():
     Data = Data.reshape((width, height))
 
     #Crea el archivo txt con los valores de los pixeles de la imagen
-    fh = open('image.txt', 'w')
+    fh = open('images/image.txt', 'w')
     listToStr = ''.join([value for value in str(Data)]) 
     fh.write(listToStr)
     fh.close
@@ -103,7 +103,7 @@ def NewImage(Salida):
     data = data.reshape((width*2, height*2))
     image = Image.fromarray(data.astype(np.uint8), 'L')
     #image = image.resize((width,height))
-    image.save("Interpolation.jpg")
+    image.save("images/Interpolation.jpg")
     print("Listo! Imagen guardada bajo el nombre Interpolation.jpg")
 
 
