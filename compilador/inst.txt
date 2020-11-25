@@ -1,0 +1,38 @@
+cv	r1 v1
+ce	r1 r2
+ci	4 r1
+gv	v1 r1 
+ge	r1 r2
+
+andve	v1 r1 v2
+andvv	v1 v2 v3
+orve	v1 r1 v2
+orvv	v1 v2 v3
+xore	v1 r1 v2
+xorv	v1 v2 v3
+
+cdv	v1 v2 v3
+civ	v1 v2 v3
+rd	v1 v2 v3
+ri	v1 v2 v3
+
+
+sv	v1 v2 v3
+
+sve	v1 r2 v2
+rv	v1 v2 v3
+rve	v1 r1 v2
+
+stp
+
+
+ci	4 r1
+
+cde	r1 6 r2 
+cie	r1 6 r2 
+
+
+
+si	r1 6 r2
+
+
