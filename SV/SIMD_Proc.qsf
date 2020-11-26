@@ -38,7 +38,7 @@
 
 set_global_assignment -name FAMILY "Cyclone V"
 set_global_assignment -name DEVICE 5CSEMA5F31C6
-set_global_assignment -name TOP_LEVEL_ENTITY TestBench
+set_global_assignment -name TOP_LEVEL_ENTITY Pipeline_SIMD
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 18.1.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "23:56:21  JULY 05, 2020"
 set_global_assignment -name LAST_QUARTUS_VERSION "20.1.0 Lite Edition"
@@ -53,7 +53,6 @@ set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_location_assignment PIN_AF14 -to clk50
 set_global_assignment -name SYSTEMVERILOG_FILE Pipeline_SIMD.sv
-set_global_assignment -name SYSTEMVERILOG_FILE VGA/WinSpriteCharacter.sv
 set_global_assignment -name SYSTEMVERILOG_FILE VGA/vsync_generator.sv
 set_global_assignment -name SYSTEMVERILOG_FILE VGA/VGA_ControllerTB.sv
 set_global_assignment -name SYSTEMVERILOG_FILE VGA/VGA_Controller.sv
@@ -95,7 +94,6 @@ set_global_assignment -name SYSTEMVERILOG_FILE VGA/Complemento2.sv
 set_global_assignment -name SYSTEMVERILOG_FILE VGA/Comparador.sv
 set_global_assignment -name SYSTEMVERILOG_FILE VGA/ColorDecoder.sv
 set_global_assignment -name SYSTEMVERILOG_FILE VGA/clockDivider.sv
-set_global_assignment -name SYSTEMVERILOG_FILE VGA/charizardColorDecoder.sv
 set_global_assignment -name SYSTEMVERILOG_FILE VGA/changeOrder.sv
 set_global_assignment -name SYSTEMVERILOG_FILE mux_4to1.sv
 set_global_assignment -name SYSTEMVERILOG_FILE mux_2to1.sv
@@ -150,7 +148,21 @@ set_global_assignment -name SYSTEMVERILOG_FILE ALU.sv
 set_global_assignment -name QIP_FILE RamV.qip
 set_global_assignment -name SYSTEMVERILOG_FILE InstSelector.sv
 set_global_assignment -name SYSTEMVERILOG_FILE VecGen.sv
-set_global_assignment -name SYSTEMVERILOG_FILE output_files/TestBench.sv
+set_global_assignment -name SYSTEMVERILOG_FILE output_files/Pipeline_tb.sv
+set_location_assignment PIN_AB12 -to Quadrant[0]
+set_location_assignment PIN_AC12 -to Quadrant[1]
+set_location_assignment PIN_AF9 -to Quadrant[2]
+set_location_assignment PIN_AF10 -to Quadrant[3]
+set_location_assignment PIN_AE12 -to filter
+set_location_assignment PIN_AA14 -to reset
+set_location_assignment PIN_AC18 -to GPIO[0]
+set_location_assignment PIN_Y17 -to GPIO[1]
+set_location_assignment PIN_AD17 -to GPIO[2]
+set_location_assignment PIN_Y18 -to GPIO[3]
+set_location_assignment PIN_AK16 -to GPIO[4]
+set_location_assignment PIN_AK18 -to GPIO[5]
+set_location_assignment PIN_AK19 -to GPIO[6]
+set_location_assignment PIN_AJ19 -to GPIO[7]
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top

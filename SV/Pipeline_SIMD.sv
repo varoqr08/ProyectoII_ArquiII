@@ -1,9 +1,10 @@
-module Pipeline_SIMD (input logic clk50, reset, go, clk_vga,
+module Pipeline_SIMD (input logic clk50, reset, go, clk_vga, filter,
+							input logic [3:0] Quadrant,
 							output logic [25:0] InstrD,
 							output logic [25:0] InstrDV,
 							output logic [31:0]	ALUResultEA, ALUResultM, ResultW, WriteDataM,
 							output logic V_SyncOut, H_SyncOut, and_enable,Stuck,vga_sync,
-							output logic [7:0] RedOut, GreenOut, BlueOut,
+							output logic [7:0] RedOut, GreenOut, BlueOut, GPIO,
 							output logic visible);
 
 
